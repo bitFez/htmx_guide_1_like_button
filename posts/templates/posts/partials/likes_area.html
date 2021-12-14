@@ -1,0 +1,15 @@
+<div class="list-group list-group-horizontal btn-group" id="likesarea" role="group">
+    <p>{{ post.likes.count }} likes
+    
+        <button hx-post="{% url 'posts:like_post' post.id %}" id="like-button" 
+          hx-target="#likesarea" hx-swap="outerHTML">
+          {% if request.user in post.likes.all %}
+            <i class="material-icons" style="font-size:16px;color:green;">check_box</i>
+          {% else %}
+          <i class="material-icons" style="font-size:16px;color:yellowgreen;">check_box_outline_blank</i>
+          {% endif %}
+        </button>
+
+    </p> 
+    
+</div>

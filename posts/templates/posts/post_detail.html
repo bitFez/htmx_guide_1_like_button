@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+    <body>
+        <h1>Post detail page</h1>
+        <br>
+        <p>{{post.post_author}}</p>
+        
+        <p>{{post.post_content}}</p>
+        <div>
+            {% include "posts/partials/likes_area.html" %}
+        </div>
+    </body>
+    <script src="https://unpkg.com/htmx.org@1.6.0"></script>
+    <script>
+        document.body.addEventListener('htmx:configRequest', (e) => {
+          e.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+          })
+      </script>
+</html>
